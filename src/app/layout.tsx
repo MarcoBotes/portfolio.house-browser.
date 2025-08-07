@@ -35,11 +35,22 @@ export default function RootLayout({
           antialiased
           w-screen h-screen
           overflow-x-hidden
-          bg-black
-          `}>
+          bg-zinc-200`}>
+
+        <div className="fixed top-0 right-0 z-600 w-60 h-48 pointer-events-none">
+          <div className="absolute top-5 right-[-45px] w-[200px] rotate-45 bg-gradient-to-t from-red-700 to-red-400 text-white text-center font-bold py-1 shadow-lg">
+            Property of<br/>Marco Botes
+          </div>
+        </div>
+
+        <div className="fixed w-screen h-screen -z-5 bg-[url('/assets/splash.jpg')] bg-cover bg-center" />
+        <div className="fixed w-screen h-screen -z-4 bg-slate-100/90 mix-blend-overlay pointer-events-none" />
 
         <header className="fixed z-50 left-0 w-screen flex justify-center">
-          <nav className="w-full min-w-60 bg-slate-700 text-white flex font-bold md:px-[5dvw]">
+          <div className="absolute w-full h-full z-5 bg-[url('/assets/splash.jpg')] bg-cover bg-center" />
+          <div className="absolute w-full h-full z-6 bg-slate-900/90 mix-blend-darken pointer-events-none" />
+
+          <nav className="w-full min-w-60 z-7 text-white flex font-bold md:px-[5dvw]">
             <Link className="p-4 transition-color transition-scale duration-100 ease-in-out hover:bg-slate-200 hover:shadow hover:text-teal-900" href="/">Home</Link>
             <Link className="p-4 transition-color transition-scale duration-100 ease-in-out hover:bg-slate-200 hover:shadow hover:text-teal-900" href="/property/1">Viewer</Link>
           </nav>
@@ -53,7 +64,7 @@ export default function RootLayout({
           space-y-4
           z-10">
 
-          <div className="background -z-1 absolute left-0 top-0 h-full w-full bg-slate-100"></div>
+          <div className="background hidden -z-1 absolute left-0 top-0 h-full w-full bg-slate-100"></div>
 
           <div className="content flex flex-col justify-center gap-4">
             {children}

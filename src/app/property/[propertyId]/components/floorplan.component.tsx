@@ -38,9 +38,7 @@ export const FloorPlanComponent: React.FC<{property: Property, className: string
             if (floorPlanImage) {
                 const widthScale = canvasSize.width / floorPlanImage.width;
                 const heightScale = canvasSize.height / floorPlanImage.height;
-                console.debug({
-                    scale: Math.min(widthScale, heightScale)
-                })
+                
                 const _scale = Math.min(widthScale, heightScale);
                 setScale( _scale );
 
@@ -60,11 +58,11 @@ export const FloorPlanComponent: React.FC<{property: Property, className: string
 
     const points: number[][] = [];
     const onClickHelper = (e: Konva.KonvaEventObject<MouseEvent>) => {
-        // points.push([e.evt.layerX, e.evt.layerY]);
-        // console.debug({
-        //     e,
-        //     points
-        // });
+        points.push([e.evt.layerX, e.evt.layerY]);
+        console.debug({
+            e,
+            points
+        });
     }
 
     return (
