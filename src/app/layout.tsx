@@ -40,7 +40,7 @@ export default function RootLayout({
 
         <div 
           className="content 
-          h-auto w-[calc(100dvw-1rem)] max-w-240
+          h-auto min-h-screen w-[calc(100dvw-1rem)] max-w-240
           mx-4 p-4
           absolute left-[calc(50%-16px)] -translate-x-1/2
           space-y-4
