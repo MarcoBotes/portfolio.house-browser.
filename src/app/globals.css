@@ -1,3 +1,12 @@
 @import "tailwindcss";
 
 
+@layer components {
+    .title {
+        @apply text-[clamp(1rem,1.2dvw,1.2rem)] font-bold border-b-1 mb-4;
+    }
+
+    .description {
+        @apply text-[clamp(0.9rem,1.1dvw,1rem)];
+    }
+}

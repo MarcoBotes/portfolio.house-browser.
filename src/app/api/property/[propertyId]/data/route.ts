@@ -158,8 +158,8 @@ export async function GET(
 
     const data: Property = {
         id: +propertyId,
-        title: `Property ${propertyId}`,
-        description: `Property ${propertyId} Description`,
+        title: `Lakeview Apartment`,
+        description: `Lakeview Apartment is a modern, sunlit unit offering stunning views of the water, spacious rooms, and a smart layout designed for comfort and style. Perfectly suited for professionals or small families, it blends scenic tranquility with everyday convenience — a peaceful retreat just minutes from the city.`,
         rooms,
     }
 

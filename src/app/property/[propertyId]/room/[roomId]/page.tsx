@@ -42,39 +42,40 @@ export default function RoomPage() {
 
   return <>
 
-    <PageWrapper direction={true}>
-      <div className="words flex flex-col gap-4">
-        <h1 className="text-[clamp(1.2rem,2dvw,1.6rem)] font-bold border-b-1">{room?.title}</h1>
-        <p className="text-[clamp(1rem,2dvw,1.4rem)]">{room?.description}</p>
+    
+      <div className="words">
+        <h1 className="title">{room?.title}</h1>
+        <p className="description">{room?.description}</p>
       </div>
-    </PageWrapper>
 
-    <PageWrapper className={`md:col-span-2`} direction={false}>
-      <div className="pictures grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap gap-4 mb-10">
-        {room?.pictureUrls.map((pictureUrl, index) => {
-          return (
-            <Image
-              key={index}
-              src={pictureUrl}
-              alt={`Room picture ${index + 1}`}
-              loading="lazy"
-              decoding="async"
-              width={400}
-              height={400}
-              className={`
-                md:w-30 md:h-30
-                object-cover
-                rounded-md shadow-sm
-                transition-transform duration-300 ease-in-out
-                md:hover:scale-300 md:hover:z-1 md:hover:rotate-0 md:hover:translate-x-0 md:hover:translate-y-0
-                cursor-pointer
-                ${transforms[index] ?? ""}
-              `}
-            />
-          );
-        })}
+    
+      <div className="galery col-span-1 md:col-span-2">
+        <h1 className="title">Galery</h1>
+        <div className="pictures grid grid-cols-1 sm:grid-cols-2 md:flex flex-wrap gap-4 mb-10">
+          {room?.pictureUrls.map((pictureUrl, index) => {
+            return (
+              <Image
+                key={index}
+                src={pictureUrl}
+                alt={`Room picture ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+                width={400}
+                height={400}
+                className={`
+                  md:w-30 md:h-30
+                  object-cover
+                  rounded-md shadow-sm
+                  transition-transform duration-300 ease-in-out
+                  md:hover:scale-300 md:hover:z-1 md:hover:rotate-0 md:hover:translate-x-0 md:hover:translate-y-0
+                  cursor-pointer
+                  ${transforms[index] ?? ""}
+                `}
+              />
+            );
+          })}
+        </div>
       </div>
-    </PageWrapper>
     
   </>;
 }

@@ -21,10 +21,15 @@ export default async function PropertyLayout({ children, params }: Props) {
   const property = await fetchProperty(propertyId);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[30%_70%] gap-4">
+    <>
+    <div className="property">
+      <h1 className="title">{property.title}</h1>
+      <p className="description">{property.description}</p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
       <FloorPlanComponent
-        className="w-full h-100 flex justify-center items-center"
+        className="w-full h-100 flex justify-center items-center md:ring-2 ring-slate-900"
         property={property}
       />
       
@@ -33,5 +38,6 @@ export default async function PropertyLayout({ children, params }: Props) {
       </RoomProvider>
 
     </div>
+    </>
   );
 }
