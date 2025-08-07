@@ -1,44 +1,49 @@
-# Before Starting
+# Project
 
-## Time estimate: 5 hours (+ undisclosed for backend)
+|  |  |
+| --- | --- |
+| __Author__ | Marco Botes |
+| __Date__ | 7 August 2025 |
+| __Tecnologies__ | React, Next.js, Tailwind |
+---
 
-I expect assembling the UI won't take me very long. I am planning on building an actual little backend for showcase purposes and to add to my personal portfolio since this challenge was very interesting.
+## Project Requirement
+Develop a property viewing application with a navigation element that allows you to click on each room individually to navigate to different pages.
 
-As a side note I am also going to challenge myself and build it in Next.js.
+### Bonus:
+Some extra self imposed challenges I wanted to explore
+- Execute in Next.js
+- Server Side rendering for the pages
+- Working API
 
-## Strategy
+## Project Execution
 
-For the purposes of this showcase I am going to assume there is an admin interface where someone can draw a room on an image, then describe it and add images. This would equate to **more hours (10h I would guess)**, but for now I assume I am just making the frontfacing app to accept the data from an API and display the image with its overlayed rooms.
+After a very small amount of research I came across a library to render complex canvas', [Konva](https://konvajs.org/api/Konva.html). After reading through the documentation the plan was to create an image with an element overlay that accomodates *hover* and *click* events.
 
-### Personal goals for 'Success'
+<p align="center">
+  <img src="public/assets/841_2160.jpg" alt="Splash Image" width="400" />
+</p>
 
-- The rooms have visual feedback when mousing over them
-- The 'active' room is also quite obvious
-- The view of the room is built entirely dynamically - 100% Json to page (Ideally so this page can be used for any number of houses)
+_Figure 1. The floor plan used for development_
 
-# Mid implementation notes
+With absolutely no design in mind and very little UI / UX experience - I set off to create a UI that wouldn't keep my up at night.
 
+## Project Result
 
-| Category | Milestone | Time (H) | Research | Implementation | Troubleshooting |
-| --- | --- | --- | --- | --- | --- |
-|| Get a Geometry object working | 0:45 | 20% | 30% | 50% |
-|| Create API Endpoint to host static json | 0:20 | 90% | 10% | - |
-| Page | SSR | 3:30 | 40% | 10% | 50% |
-| Page | UI | 0:50 | 10% | 60% | 30% |
-|| *Total* | *~6:00* ||||
+<p align="center">
+  <img src="readme/result.png" alt="Project Result" width="800" />
+</p>
 
-## I have no idea how SSR should look like
-For some reason the server side rendering is giving me a massive uphil. I keep getting multiple errors regarding _ReactPromise_'s that I need to await, but telling them to await causes the code to fail.
+_Figure 2. Desktop View Result_
 
-```tsx
-export default async function HomePage({ params }: Props) {
-  const { id } = params;
-  const home = await getHome(id);
-  ...
-}
-```
-Logically speaking I understand that there would be some issues with having a clientside library in SSR, but as far as I understand I can minimize the component's that _'use client'_ to just the live components. But the samples language models give me and the docs I find online are all at odds with each other. I eventually got it working though - but ironically I am not sure what was the issue.
+<p align="center">
+  <img src="readme/navigation.gif" alt="Project Result" width="300" />
+</p>
 
-# After completing
+_Figure 3. Navigation Result_
 
-**Final time count: _ hours**
+<p align="center">
+  <img src="readme/result.gif" alt="Project Result" width="300" />
+</p>
+
+_Figure 4. Mobile View Result_
